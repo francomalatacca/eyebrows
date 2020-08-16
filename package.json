@@ -1,0 +1,23 @@
+{
+  "name": "eyebrows",
+  "version": "1.0.0",
+  "description": "this is a logicless json template engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "template",
+    "json",
+    "logicless"
+  ],
+  "author": "franco malatacca",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1"
+  },
+  "dependencies": {
+    "jsonpath": "^1.0.2"
+  }
+}
