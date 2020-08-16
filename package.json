@@ -1,5 +1,5 @@
 {
-  "name": "eyebrows",
+  "name": "@francomalatacca/eyebrows",
   "version": "1.0.0",
   "description": "this is a logicless json template engine",
   "main": "index.js",
