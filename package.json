@@ -19,5 +19,16 @@
   },
   "dependencies": {
     "jsonpath": "^1.0.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francomalatacca/eyebrows.git"
+  },
+  "bugs": {
+    "url": "https://github.com/francomalatacca/eyebrows/issues"
+  },
+  "homepage": "https://github.com/francomalatacca/eyebrows#readme"
 }

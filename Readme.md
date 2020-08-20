@@ -10,7 +10,7 @@ The basic functionality is to provide a base template with some placeholders and
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install --save eyebrows
+$ npm install --save @francomalatacca/eyebrows
 ```
 
 ## Usage
