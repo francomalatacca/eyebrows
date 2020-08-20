@@ -110,11 +110,11 @@ function setValueArray(obj, path, obj2, todel, newValue, isDel = false) {
     
     for (const k in Object.keys(obj2)) {
         const currentKey = Object.keys(obj2)[k];
-        const currentValue = newValue[currentKey];
+        const currentValue = newValue[currentKey.replace('{{','').replace('}}','')];
         if(typeof (currentValue) === "number"){
-            obj2 = JSON.parse((JSON.stringify(obj2)).replace(new RegExp("\"\{\{" + Object.keys(obj2)[k] + "+\}\}\"+","g"), newValue[Object.keys(obj2)[k]]));
+            obj2 = JSON.parse((JSON.stringify(obj2)).replace(new RegExp(Object.keys(obj2)[k].indexOf("{") > -1 ? Object.keys(obj2)[k] : "\"\{\{" + Object.keys(obj2)[k] + "+\}\}\"+","g"), currentValue));
         }else{
-            obj2 = JSON.parse((JSON.stringify(obj2)).replace(new RegExp("\{\{" + Object.keys(obj2)[k] + "+\}\}+","g"), newValue[Object.keys(obj2)[k]]));
+            obj2 = JSON.parse((JSON.stringify(obj2)).replace(new RegExp(Object.keys(obj2)[k].indexOf("{") > -1 ? Object.keys(obj2)[k] : "\{\{" + Object.keys(obj2)[k] + "+\}\}+","g"), currentValue));
         }
     }
     obj.push(obj2);
