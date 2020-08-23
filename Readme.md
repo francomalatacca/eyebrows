@@ -119,6 +119,65 @@ output:
         ]
 }
 ```
+and with objects
+
+template:
+```javascript
+{
+    "a": {
+        "b": {
+            "{{__elements}}": {
+                "first": {
+                    "name": "{{name}}",
+                    "age": "{{age}}"
+                },
+                "second": {
+                    "name": "{{name}}",
+                    "age": "{{age}}"
+                }
+            }
+        }
+    }
+}
+```
+
+data object:
+```javascript
+{ 
+    elements: {
+        "first":    { 
+            "name": "abc", 
+            "lastName": "cde", 
+            "age": 18 
+        },
+        "second":   { 
+            "name": "xyz", 
+            "lastName": "str", 
+            "age": 29 
+        }
+    }
+}
+```
+
+output:
+```javascript
+{
+   "a":{
+      "b":{
+         "elements":{
+            "first":{
+               "name":"abc",
+               "age":18
+            },
+            "second":{
+               "name":"xyz",
+               "age":29
+            }
+         }
+      }
+   }
+}
+```
 
 ## About
 

@@ -101,19 +101,41 @@ describe('eyebrown.js value replacement', () => {
         const complex = {
             "a": {
                 "b": {
-                    "{{..elements}}": {
-                        "name": "{{name}}",
-                        "age": "{{age}}"
+                    "{{__elements}}": {
+                        "first": {
+                            "name": "{{name}}",
+                            "age": "{{age}}"
+                        },
+                        "second": {
+                            "name": "{{name}}",
+                            "age": "{{age}}"
+                        }
                     }
                 }
             }
         }
-        const result = eye.render(complex, { elements: [{"name": "abc", "lastName": "cde", "age": 18},{"name": "xyz", "lastName": "str", "age": 29}] });
+        
+        const result = eye.render(complex, 
+        { 
+            elements: {
+                "first":    { 
+                    "name": "abc", 
+                    "lastName": "cde", 
+                    "age": 18 
+                },
+                "second":   { 
+                    "name": "xyz", 
+                    "lastName": "str", 
+                    "age": 29 
+                }
+            }
+        });
+
         console.log(result);
-        expect(result["a"]["b"]["elements"][0]["name"]).to.equal("abc");
-        expect(result["a"]["b"]["elements"][0]["age"]).to.equal(18);
-        expect(result["a"]["b"]["elements"][1]["name"]).to.equal("xyz");
-        expect(result["a"]["b"]["elements"][1]["age"]).to.equal(29);
+        expect(result["a"]["b"]["elements"]["first"]["name"]).to.equal("abc");
+        expect(result["a"]["b"]["elements"]["first"]["age"]).to.equal(18);
+        expect(result["a"]["b"]["elements"]["second"]["name"]).to.equal("xyz");
+        expect(result["a"]["b"]["elements"]["second"]["age"]).to.equal(29);
         });
     
         it('should render the student elements with an iterative process', () => {
